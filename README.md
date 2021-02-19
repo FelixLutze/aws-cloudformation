@@ -1,7 +1,7 @@
 # aws-cloudformation
 This project represents a template that is made for the AWS CloudFormation service.
 
-1. Add the following Key Pair to your ec2 interface (used for ssh access)
+1. Add the following Key Pair to your ec2 interface (used for ssh access from private subnet)
  - `JumpBox`
 2. Create a IAM-Role called 'UdagramS3ReadOnlyEC2'
  -  Policy Name: `AmazonS3ReadOnlyAccess`
