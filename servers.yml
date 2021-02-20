@@ -6,9 +6,6 @@ Parameters:
   EnvironmentName:
     Description: An environment name that will be prefixed to resource names
     Type: String
-  KeyPair:
-    Description:  Used for ssh access from private subnet
-    Type: String
 
 Resources:
   LBSecGroup:
@@ -68,7 +65,6 @@ Resources:
           aws s3 cp s3://udacity-demo-1/udacity.zip .
           unzip -o udacity.zip        
       ImageId: ami-0932440befd74cdba
-      KeyName: ${KeyPair}
       SecurityGroups:
       - Ref: WebServerSecGroup
       InstanceType: t3.small
@@ -134,3 +130,18 @@ Resources:
       VpcId: 
         Fn::ImportValue:
           Fn::Sub: "${EnvironmentName}-VPCID"
+
+Outputs: 
+  WebAppLBD-DNS:
+    Description: A reference to the LoadBalancer's DNS name
+    Value: !GetAtt myELB.DNSName
+    Export:
+      Name: !Sub ${EnvironmentName}-LB-DNS
+    
+
+
+    PublicSubnet2: 
+      Description: A reference to the public subnet in the 2nd Availability Zone
+      Value: !Ref PublicSubnet2
+      Export:
+        Name: !Sub ${EnvironmentName}-PUB2-SN
