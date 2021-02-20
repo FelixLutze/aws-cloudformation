@@ -137,11 +137,4 @@ Outputs:
     Value: !GetAtt myELB.DNSName
     Export:
       Name: !Sub ${EnvironmentName}-LB-DNS
-    
-
-
-    PublicSubnet2: 
-      Description: A reference to the public subnet in the 2nd Availability Zone
-      Value: !Ref PublicSubnet2
-      Export:
-        Name: !Sub ${EnvironmentName}-PUB2-SN
+      
