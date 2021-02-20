@@ -133,8 +133,8 @@ Resources:
 
 Outputs: 
   WebAppLBD-DNS:
-    Description: A reference to the LoadBalancer's DNS name
+    Description: A reference to the LoadBalancer's URL name
     Value: !GetAtt myELB.DNSName
     Export:
-      Name: !Sub ${EnvironmentName}-LB-DNS
-      
+      Name: !Sub ${EnvironmentName}-LB-URL
+
